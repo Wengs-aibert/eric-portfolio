@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-x-clip overflow-y-visible"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
       {/* Name container */}
