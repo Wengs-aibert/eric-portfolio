@@ -1,50 +1,56 @@
 import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const handleContactClick = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollTo = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section 
-      id="hero" 
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-white dark:bg-black"
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-bg"
     >
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="flex flex-col items-center"
         >
-          {/* Profile Photo Placeholder */}
-          <div className="mb-8">
-            <div className="w-32 h-32 mx-auto bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
-              <span className="text-gray-500 dark:text-gray-400 text-sm">Photo</span>
+          {/* Headshot Placeholder */}
+          <div className="mb-10">
+            <div className="w-36 h-36 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center border-2 border-accent/20">
+              <span className="text-3xl font-bold text-accent">EW</span>
             </div>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-text tracking-tight mb-4">
             Eric Weng
           </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
+
+          <p className="text-xl sm:text-2xl md:text-3xl font-medium text-accent mb-8">
             Software Engineer
           </p>
-          
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-            Building scalable solutions with modern technologies. 
-            Passionate about full-stack development, cloud infrastructure, and creating elegant user experiences.
+
+          <p className="text-lg md:text-xl text-text/70 max-w-2xl mx-auto mb-12 leading-relaxed">
+            Full stack engineer who's shipped production systems at scale.
+            Now building for businesses that need to get online.
           </p>
-          
-          <button
-            onClick={handleContactClick}
-            className="inline-block px-8 py-3 bg-blue-600 dark:bg-orange-500 text-white font-semibold rounded-lg hover:bg-blue-700 dark:hover:bg-orange-600 transition-colors duration-200 transform hover:scale-105"
-          >
-            Get In Touch
-          </button>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={() => scrollTo('#projects')}
+              className="px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-200 hover:scale-105"
+            >
+              See My Work
+            </button>
+            <button
+              onClick={() => scrollTo('#contact')}
+              className="px-8 py-4 border-2 border-accent text-accent font-semibold rounded-lg hover:bg-accent hover:text-white transition-all duration-200 hover:scale-105"
+            >
+              Let's Talk
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

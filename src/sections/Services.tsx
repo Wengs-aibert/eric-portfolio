@@ -1,68 +1,70 @@
 import { motion } from 'framer-motion';
-import { Code, Cloud, Brain, Settings } from 'lucide-react';
+import { Globe, Code2, Calendar, ShoppingCart, Smartphone } from 'lucide-react';
 
 const services = [
   {
-    icon: Code,
-    title: 'Full-Stack Development',
-    description: 'Building modern web applications with React, TypeScript, Node.js, and more.'
+    icon: Globe,
+    title: 'Websites',
+    description: 'Custom websites that look great and actually bring in customers.',
   },
   {
-    icon: Brain,
-    title: 'ML/AI Solutions',
-    description: 'Developing intelligent systems and machine learning models for complex problems.'
+    icon: Code2,
+    title: 'Web Apps',
+    description: 'Full-stack applications built to handle real users and real data.',
   },
   {
-    icon: Settings,
-    title: 'System Design',
-    description: 'Architecting scalable, maintainable systems that grow with your business needs.'
+    icon: Calendar,
+    title: 'Booking Systems',
+    description: 'Let your customers schedule appointments online, 24/7.',
   },
   {
-    icon: Cloud,
-    title: 'Cloud Infrastructure',
-    description: 'Deploying and managing applications on AWS, GCP, and other cloud platforms.'
-  }
+    icon: ShoppingCart,
+    title: 'Online Ordering',
+    description: 'E-commerce and ordering systems that just work.',
+  },
+  {
+    icon: Smartphone,
+    title: 'iOS Apps',
+    description: 'Native mobile apps for iPhone and iPad.',
+  },
 ];
 
 export default function Services() {
   return (
-    <section 
-      id="services" 
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900"
+    <section
+      id="services"
+      className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-bg"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-text mb-4">
             What I Do
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            I specialize in creating robust, scalable solutions across the full technology stack.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="group border border-text/10 rounded-xl p-8 hover:-translate-y-1 hover:border-accent/40 transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-orange-100 rounded-lg mb-4">
-                <service.icon className="w-6 h-6 text-blue-600 dark:text-orange-500" />
+              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
+                <service.icon className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-xl font-bold text-text mb-3">
                 {service.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-text/60 leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
