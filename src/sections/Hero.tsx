@@ -1,58 +1,87 @@
 import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-bg"
+      className="min-h-screen flex flex-col items-center justify-center bg-bg relative overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto text-center">
+      {/* Name container */}
+      <div className="relative flex flex-col items-center justify-center w-full">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="flex flex-col items-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          className="relative"
         >
-          {/* Headshot Placeholder */}
-          <div className="mb-10">
-            <div className="w-36 h-36 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center border-2 border-accent/20">
-              <span className="text-3xl font-bold text-accent">EW</span>
-            </div>
-          </div>
-
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-text tracking-tight mb-4">
-            Eric Weng
+          <h1
+            className="hero-name font-black uppercase text-center leading-[0.9] select-none"
+            style={{
+              fontFamily: "'Orbitron', sans-serif",
+              fontSize: 'clamp(4rem, 15vw, 12rem)',
+              color: 'transparent',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            <span className="block sm:inline">ERIC</span>
+            <span className="block sm:inline sm:ml-[0.3em]">WENG</span>
           </h1>
-
-          <p className="text-xl sm:text-2xl md:text-3xl font-medium text-accent mb-8">
-            Software Engineer
-          </p>
-
-          <p className="text-lg md:text-xl text-text/70 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Full stack engineer who's shipped production systems at scale.
-            Now building for businesses that need to get online.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={() => scrollTo('#projects')}
-              className="px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-200 hover:scale-105"
-            >
-              See My Work
-            </button>
-            <button
-              onClick={() => scrollTo('#contact')}
-              className="px-8 py-4 border-2 border-accent text-accent font-semibold rounded-lg hover:bg-accent hover:text-white transition-all duration-200 hover:scale-105"
-            >
-              Let's Talk
-            </button>
-          </div>
         </motion.div>
+
+        {/* Orange accent line cutting through center */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: 'easeInOut' }}
+          className="absolute top-1/2 left-0 w-full h-[3px] bg-accent z-10"
+          style={{ transformOrigin: 'left center' }}
+        />
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.4 }}
+          className="mt-6 text-accent uppercase tracking-[0.25em] text-center"
+          style={{
+            fontFamily: "'Orbitron', monospace",
+            fontSize: 'clamp(0.6rem, 1.5vw, 1rem)',
+          }}
+        >
+          Full Stack Software Engineer
+        </motion.p>
       </div>
+
+      {/* Scroll-down arrow */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 2 }}
+        className="absolute bottom-10"
+      >
+        <motion.button
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          onClick={() =>
+            document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })
+          }
+          className="text-text/40 hover:text-text/60 transition-colors"
+          aria-label="Scroll down"
+        >
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </motion.button>
+      </motion.div>
+
+      <style>{`
+        .hero-name {
+          -webkit-text-stroke: 2px rgba(0, 0, 0, 0.2);
+        }
+        :root.dark .hero-name {
+          -webkit-text-stroke: 2px rgba(255, 255, 255, 0.25);
+        }
+      `}</style>
     </section>
   );
 }
