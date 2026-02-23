@@ -79,7 +79,7 @@ export default function Hero() {
       {/* Skills marquee bar */}
       <div className="absolute -bottom-4 left-0 w-full z-10">
         <div
-          className="w-[120vw] -ml-[10vw] overflow-hidden py-3"
+          className="w-[120vw] -ml-[10vw] overflow-hidden py-6"
           style={{ transform: 'rotate(2deg)', backgroundColor: 'var(--color-accent)' }}
         >
           <div
@@ -89,7 +89,7 @@ export default function Hero() {
             {[0, 1].map((i) => (
               <span
                 key={i}
-                className="font-bold uppercase text-lg tracking-wider px-4"
+                className="font-bold uppercase text-2xl tracking-wider px-4"
                 style={{ fontFamily: "'Orbitron', sans-serif", color: 'var(--color-bg)' }}
               >
                 PYTHON &nbsp;★&nbsp; JAVA &nbsp;★&nbsp; C/C++ &nbsp;★&nbsp; JAVASCRIPT &nbsp;★&nbsp; REACT &nbsp;★&nbsp; TYPESCRIPT &nbsp;★&nbsp; RUST &nbsp;★&nbsp; GIT &nbsp;★&nbsp; CLAUDE/CURSOR &nbsp;★&nbsp; ESP32 &nbsp;★&nbsp; NOSQL &nbsp;★&nbsp; UNIX/LINUX &nbsp;★&nbsp; MACOS &nbsp;★&nbsp; WINDOWS &nbsp;★&nbsp;&nbsp;
