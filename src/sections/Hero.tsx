@@ -7,6 +7,24 @@ export default function Hero() {
       className="min-h-screen flex flex-col items-center justify-center relative overflow-x-clip overflow-y-visible"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
+      {/* Background photo — stylized filter */}
+      <div
+        className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
+        style={{ overflow: 'hidden' }}
+      >
+        <img
+          src="/eric-hero.jpg"
+          alt=""
+          className="hero-bg-photo h-[85%] w-auto object-cover"
+          style={{
+            filter: 'grayscale(100%) contrast(1.8) brightness(0.4)',
+            opacity: 0.15,
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%)',
+          }}
+        />
+      </div>
+
       {/* Name container */}
       <div className="relative flex flex-col items-center justify-center w-full">
         <motion.div
@@ -105,6 +123,14 @@ export default function Hero() {
         }
         :root.dark .hero-name {
           -webkit-text-stroke: 2px rgba(255, 255, 255, 0.25);
+        }
+        :root.dark .hero-bg-photo {
+          filter: grayscale(100%) contrast(1.8) brightness(0.4);
+          opacity: 0.15;
+        }
+        .hero-bg-photo {
+          filter: grayscale(100%) contrast(1.5) brightness(0.7);
+          opacity: 0.1;
         }
       `}</style>
     </section>
