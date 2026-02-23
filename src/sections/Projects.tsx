@@ -41,21 +41,13 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -6, boxShadow: '0 0 20px rgba(var(--accent-rgb, 249, 115, 22), 0.15)' }}
-              className="rounded-xl p-6 transition-all duration-300 cursor-default"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: index * 0.2, ease: 'easeOut' }}
+              viewport={{ once: true, margin: '-50px' }}
+              className="project-card rounded-xl p-6 cursor-default"
               style={{
-                border: '1px solid rgba(var(--accent-rgb, 249, 115, 22), 0.2)',
                 backgroundColor: 'var(--color-bg)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--color-accent)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(var(--accent-rgb, 249, 115, 22), 0.2)';
               }}
             >
               <h3
@@ -76,7 +68,7 @@ export default function Projects() {
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 text-xs rounded-full transition-colors duration-200"
+                    className="px-3 py-1 text-xs rounded-full"
                     style={{
                       border: '1px solid var(--color-accent)',
                       color: 'var(--color-accent)',
@@ -90,6 +82,17 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        .project-card {
+          border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
+          transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .project-card:hover {
+          transform: translateY(-6px);
+          border-color: var(--color-accent);
+        }
+      `}</style>
     </section>
   );
 }
