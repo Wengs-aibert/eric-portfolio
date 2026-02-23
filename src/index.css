@@ -32,3 +32,9 @@ body {
 .theme-transition {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Skills marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

@@ -57,7 +57,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 2 }}
-        className="absolute bottom-10"
+        className="absolute bottom-10 z-20"
       >
         <motion.button
           animate={{ y: [0, 8, 0] }}
@@ -73,6 +73,29 @@ export default function Hero() {
           </svg>
         </motion.button>
       </motion.div>
+
+      {/* Skills marquee bar */}
+      <div className="absolute -bottom-4 left-0 w-full z-10">
+        <div
+          className="w-[120vw] -ml-[10vw] bg-accent overflow-hidden py-3"
+          style={{ transform: 'rotate(7deg)' }}
+        >
+          <div
+            className="flex whitespace-nowrap"
+            style={{ animation: 'marquee 35s linear infinite' }}
+          >
+            {[0, 1].map((i) => (
+              <span
+                key={i}
+                className="text-bg font-bold uppercase text-lg tracking-wider px-4"
+                style={{ fontFamily: "'Orbitron', sans-serif" }}
+              >
+                PYTHON &nbsp;★&nbsp; JAVA &nbsp;★&nbsp; C/C++ &nbsp;★&nbsp; JAVASCRIPT &nbsp;★&nbsp; REACT &nbsp;★&nbsp; TYPESCRIPT &nbsp;★&nbsp; RUST &nbsp;★&nbsp; GIT &nbsp;★&nbsp; CLAUDE/CURSOR &nbsp;★&nbsp; ESP32 &nbsp;★&nbsp; NOSQL &nbsp;★&nbsp; UNIX/LINUX &nbsp;★&nbsp; MACOS &nbsp;★&nbsp; WINDOWS &nbsp;★&nbsp;&nbsp;
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <style>{`
         .hero-name {
