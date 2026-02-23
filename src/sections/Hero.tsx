@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import heroPhoto from '../assets/eric-hero.jpg';
 
 export default function Hero() {
   return (
@@ -13,7 +14,7 @@ export default function Hero() {
         style={{ overflow: 'hidden' }}
       >
         <img
-          src="/eric-hero.jpg"
+          src={heroPhoto}
           alt=""
           className="hero-bg-photo h-[85%] w-auto object-cover"
           style={{
