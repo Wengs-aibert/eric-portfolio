@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* CSS Variables for Theme System */
+:root {
+  --color-accent: #1E3A5F; /* Navy for light theme */
+  --color-bg: #FFFFFF;
+  --color-text: #000000;
+}
+
+:root.dark {
+  --color-accent: #F97316; /* Orange for dark theme */
+  --color-bg: #000000;
+  --color-text: #FFFFFF;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Prevent flash of wrong theme */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
