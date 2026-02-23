@@ -15,11 +15,11 @@ function AppContent() {
       <Navbar />
       <main>
         <Hero />
+        <About />
         <Services />
         <Projects />
         <TechStack />
         <Experience />
-        <About />
         <Contact />
       </main>
       <Footer />

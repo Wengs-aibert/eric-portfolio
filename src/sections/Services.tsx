@@ -1,75 +1,123 @@
 import { motion } from 'framer-motion';
-import { Globe, Code2, Calendar, ShoppingCart, Smartphone } from 'lucide-react';
 
 const services = [
-  {
-    icon: Globe,
-    title: 'Websites',
-    description: 'Custom websites that look great and actually bring in customers.',
-  },
-  {
-    icon: Code2,
-    title: 'Web Apps',
-    description: 'Full-stack applications built to handle real users and real data.',
-  },
-  {
-    icon: Calendar,
-    title: 'Booking Systems',
-    description: 'Let your customers schedule appointments online, 24/7.',
-  },
-  {
-    icon: ShoppingCart,
-    title: 'Online Ordering',
-    description: 'E-commerce and ordering systems that just work.',
-  },
-  {
-    icon: Smartphone,
-    title: 'iOS Apps',
-    description: 'Native mobile apps for iPhone and iPad.',
-  },
+  { title: 'Websites', stat: 'Custom', subtitle: 'Designed & built from scratch' },
+  { title: 'Web Apps', stat: 'Full Stack', subtitle: 'Frontend to backend to deploy' },
+  { title: 'Booking Systems', stat: '24/7', subtitle: 'Online scheduling that just works' },
+  { title: 'Online Ordering', stat: 'E-commerce', subtitle: 'Orders, payments, fulfillment' },
+  { title: 'iOS Apps', stat: 'Native', subtitle: 'iPhone & iPad applications' },
 ];
 
 export default function Services() {
   return (
     <section
       id="services"
-      className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-bg"
+      className="py-24 md:py-32 px-4 sm:px-6 lg:px-8"
+      style={{ backgroundColor: 'var(--color-bg)' }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-text mb-4">
+          <p
+            style={{
+              color: 'var(--color-accent)',
+              fontFamily: "'Orbitron', sans-serif",
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              marginBottom: '0.75rem',
+            }}
+          >
             What I Do
+          </p>
+          <h2
+            style={{
+              fontFamily: "'Orbitron', sans-serif",
+              fontWeight: 800,
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              color: 'var(--color-text)',
+              textTransform: 'uppercase',
+            }}
+          >
+            Services
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Cards row */}
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true }}
+          className="flex gap-5 overflow-x-auto pb-4"
+          style={{ scrollSnapType: 'x mandatory' }}
+        >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
               viewport={{ once: true }}
-              className="group border border-text/10 rounded-xl p-8 hover:-translate-y-1 hover:border-accent/40 transition-all duration-300"
+              className="relative rounded-lg p-6 md:p-8 flex-shrink-0 transition-all duration-300 cursor-default group"
+              style={{
+                backgroundColor: 'color-mix(in srgb, var(--color-text) 5%, transparent)',
+                minWidth: '220px',
+                width: 'clamp(220px, 18vw, 260px)',
+                minHeight: '260px',
+                scrollSnapAlign: 'start',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                border: '1px solid transparent',
+              }}
+              whileHover={{ y: -4, borderColor: 'var(--color-accent)' }}
             >
-              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
-                <service.icon className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold text-text mb-3">
+              {/* Accent square top-right */}
+              <div
+                className="absolute top-4 right-4 w-8 h-8 rounded-sm transition-transform duration-300 group-hover:scale-110"
+                style={{ backgroundColor: 'var(--color-accent)' }}
+              />
+
+              {/* Title */}
+              <h3
+                style={{
+                  color: 'var(--color-text)',
+                  fontWeight: 700,
+                  fontSize: '1.1rem',
+                }}
+              >
                 {service.title}
               </h3>
-              <p className="text-text/60 leading-relaxed">
-                {service.description}
-              </p>
+
+              {/* Bottom content */}
+              <div>
+                <p
+                  style={{
+                    color: 'var(--color-accent)',
+                    fontWeight: 800,
+                    fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                    fontFamily: "'Orbitron', sans-serif",
+                    lineHeight: 1.2,
+                    marginBottom: '0.25rem',
+                  }}
+                >
+                  {service.stat}
+                </p>
+                <p style={{ color: 'var(--color-text)', opacity: 0.5, fontSize: '0.85rem' }}>
+                  {service.subtitle}
+                </p>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
