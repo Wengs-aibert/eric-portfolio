@@ -50,23 +50,19 @@ export default function Services() {
           </h2>
         </motion.div>
 
-        {/* Cards row */}
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          viewport={{ once: true }}
+        {/* Cards row — no container animation, only individual cards */}
+        <div
           className="flex gap-5 overflow-x-auto pb-4"
           style={{ scrollSnapType: 'x mandatory' }}
         >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, x: 60 }}
+              initial={{ opacity: 0, x: 80 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+              transition={{ duration: 1, delay: index * 0.15, ease: 'easeOut' }}
               viewport={{ once: true }}
-              className="relative rounded-lg p-6 md:p-8 flex-shrink-0 transition-all duration-300 cursor-default group"
+              className="service-card relative rounded-lg p-6 md:p-8 flex-shrink-0 cursor-default group"
               style={{
                 backgroundColor: 'color-mix(in srgb, var(--color-text) 5%, transparent)',
                 minWidth: '220px',
@@ -78,7 +74,6 @@ export default function Services() {
                 justifyContent: 'space-between',
                 border: '1px solid transparent',
               }}
-              whileHover={{ y: -4, borderColor: 'var(--color-accent)' }}
             >
               {/* Accent square top-right */}
               <div
@@ -117,8 +112,18 @@ export default function Services() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
+
+      <style>{`
+        .service-card {
+          transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .service-card:hover {
+          transform: translateY(-4px);
+          border-color: var(--color-accent);
+        }
+      `}</style>
     </section>
   );
 }
