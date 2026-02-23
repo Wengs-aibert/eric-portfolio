@@ -4,7 +4,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center bg-bg relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
+      style={{ backgroundColor: 'var(--color-bg)' }}
     >
       {/* Name container */}
       <div className="relative flex flex-col items-center justify-center w-full">
@@ -28,13 +29,13 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        {/* Orange accent line cutting through center */}
+        {/* Accent line cutting through center */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.6, ease: 'easeInOut' }}
-          className="absolute top-1/2 left-0 w-full h-[3px] bg-accent z-10"
-          style={{ transformOrigin: 'left center' }}
+          className="absolute top-1/2 left-0 w-full h-[3px] z-10"
+          style={{ transformOrigin: 'left center', backgroundColor: 'var(--color-accent)' }}
         />
 
         {/* Subtitle */}
@@ -42,10 +43,11 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.4 }}
-          className="mt-6 text-accent uppercase tracking-[0.25em] text-center"
+          className="mt-6 uppercase tracking-[0.25em] text-center"
           style={{
             fontFamily: "'Orbitron', monospace",
             fontSize: 'clamp(0.6rem, 1.5vw, 1rem)',
+            color: 'var(--color-accent)',
           }}
         >
           Full Stack Software Engineer
@@ -65,7 +67,7 @@ export default function Hero() {
           onClick={() =>
             document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })
           }
-          className="text-text/40 hover:text-text/60 transition-colors"
+          style={{ color: 'var(--color-text)', opacity: 0.4 }}
           aria-label="Scroll down"
         >
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -77,8 +79,8 @@ export default function Hero() {
       {/* Skills marquee bar */}
       <div className="absolute -bottom-4 left-0 w-full z-10">
         <div
-          className="w-[120vw] -ml-[10vw] bg-accent overflow-hidden py-3"
-          style={{ transform: 'rotate(7deg)' }}
+          className="w-[120vw] -ml-[10vw] overflow-hidden py-3"
+          style={{ transform: 'rotate(2deg)', backgroundColor: 'var(--color-accent)' }}
         >
           <div
             className="flex whitespace-nowrap"
@@ -87,8 +89,8 @@ export default function Hero() {
             {[0, 1].map((i) => (
               <span
                 key={i}
-                className="text-bg font-bold uppercase text-lg tracking-wider px-4"
-                style={{ fontFamily: "'Orbitron', sans-serif" }}
+                className="font-bold uppercase text-lg tracking-wider px-4"
+                style={{ fontFamily: "'Orbitron', sans-serif", color: 'var(--color-bg)' }}
               >
                 PYTHON &nbsp;★&nbsp; JAVA &nbsp;★&nbsp; C/C++ &nbsp;★&nbsp; JAVASCRIPT &nbsp;★&nbsp; REACT &nbsp;★&nbsp; TYPESCRIPT &nbsp;★&nbsp; RUST &nbsp;★&nbsp; GIT &nbsp;★&nbsp; CLAUDE/CURSOR &nbsp;★&nbsp; ESP32 &nbsp;★&nbsp; NOSQL &nbsp;★&nbsp; UNIX/LINUX &nbsp;★&nbsp; MACOS &nbsp;★&nbsp; WINDOWS &nbsp;★&nbsp;&nbsp;
               </span>
