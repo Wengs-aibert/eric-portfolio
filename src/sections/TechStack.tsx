@@ -11,7 +11,7 @@ export default function TechStack() {
   return (
     <section
       id="tech-stack"
-      className="py-20 px-4 sm:px-6 lg:px-8"
+      className="py-24 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
       <div className="max-w-5xl mx-auto">

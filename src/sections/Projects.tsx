@@ -22,7 +22,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8"
+      className="min-h-screen py-24 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
       <div className="max-w-6xl mx-auto">

@@ -25,7 +25,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-20 px-4 sm:px-6 lg:px-8"
+      className="py-24 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
       <div className="max-w-4xl mx-auto">

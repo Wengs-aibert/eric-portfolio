@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
-import LoadingSplash from './components/LoadingSplash';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Hero from './sections/Hero';
 import Services from './sections/Services';
 import Projects from './sections/Projects';
@@ -11,35 +10,19 @@ import About from './sections/About';
 import Contact from './sections/Contact';
 
 function AppContent() {
-  const [showLoading, setShowLoading] = useState(true);
-
-  useEffect(() => {
-    // Hide loading screen after 1.5 seconds
-    const timer = setTimeout(() => {
-      setShowLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white">
-      <LoadingSplash isVisible={showLoading} />
-      
-      {!showLoading && (
-        <>
-          <Navbar />
-          <main>
-            <Hero />
-            <Services />
-            <Projects />
-            <TechStack />
-            <Experience />
-            <About />
-            <Contact />
-          </main>
-        </>
-      )}
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
+      <Navbar />
+      <main>
+        <Hero />
+        <Services />
+        <Projects />
+        <TechStack />
+        <Experience />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
