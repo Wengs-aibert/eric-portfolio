@@ -50,18 +50,18 @@ export default function Services() {
           </h2>
         </motion.div>
 
-        {/* Cards row — no container animation, only individual cards */}
-        <div
+        {/* Cards row — single unified glide animation */}
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          viewport={{ once: true }}
           className="flex gap-5 overflow-x-auto pb-4"
           style={{ scrollSnapType: 'x mandatory' }}
         >
-          {services.map((service, index) => (
-            <motion.div
+          {services.map((service) => (
+            <div
               key={service.title}
-              initial={{ opacity: 0, x: 80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: index * 0.15, ease: 'easeOut' }}
-              viewport={{ once: true }}
               className="service-card relative rounded-lg p-6 md:p-8 flex-shrink-0 cursor-default group"
               style={{
                 backgroundColor: 'color-mix(in srgb, var(--color-text) 5%, transparent)',
@@ -110,9 +110,9 @@ export default function Services() {
                   {service.subtitle}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <style>{`
