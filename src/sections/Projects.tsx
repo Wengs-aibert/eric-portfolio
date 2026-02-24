@@ -42,10 +42,6 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => {
-            const Wrapper = project.link ? 'a' : 'div';
-            const wrapperProps = project.link
-              ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' }
-              : {};
             return (
             <motion.div
               key={project.title}
