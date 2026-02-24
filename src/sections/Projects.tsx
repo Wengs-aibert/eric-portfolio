@@ -2,19 +2,22 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: 'Olympics Platform',
-    description: 'Combined UNCOLYMPICS and VROlympics into a unified competitive events platform — real-time scoring, team management, and live leaderboards.',
-    tech: ['React', 'TypeScript', 'Node.js'],
+    title: 'Equipment Management System',
+    description: 'Real-time equipment tracking and shift management tool for 24/7 operations. Centralized dashboard integrating multiple APIs into a single source of truth for operators and engineering teams.',
+    tech: ['React', 'TypeScript', 'REST APIs', 'Slack/Jira Integration'],
+    link: null,
   },
   {
     title: 'Golf Leaderboard',
     description: 'Match and tournament tracking app for golfers — create rounds, track scores per hole, and compete on persistent leaderboards.',
     tech: ['React', 'TypeScript', 'Tailwind'],
+    link: null,
   },
   {
-    title: 'Equipment Management System',
-    description: 'Real-time equipment tracking and shift management tool for 24/7 operations. Centralized dashboard integrating multiple APIs into a single source of truth for operators and engineering teams.',
-    tech: ['React', 'TypeScript', 'REST APIs', 'Slack/Jira Integration'],
+    title: 'VROlympics Landing Page',
+    description: 'Landing page for VROlympics — a virtual reality competitive events platform featuring real-time scoring and live leaderboards.',
+    tech: ['React', 'TypeScript', 'Vercel'],
+    link: 'https://vrolympics1.vercel.app',
   },
 ];
 
@@ -38,17 +41,23 @@ export default function Projects() {
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            const Wrapper = project.link ? 'a' : 'div';
+            const wrapperProps = project.link
+              ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' }
+              : {};
+            return (
             <motion.div
               key={project.title}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: index * 0.2, ease: 'easeOut' }}
               viewport={{ once: true, margin: '-50px' }}
-              className="project-card rounded-xl p-6 cursor-default"
+              className={`project-card rounded-xl p-6 ${project.link ? 'cursor-pointer' : 'cursor-default'}`}
               style={{
                 backgroundColor: 'var(--color-bg)',
               }}
+              onClick={() => project.link && window.open(project.link, '_blank')}
             >
               <h3
                 className="text-xl font-bold mb-3"
@@ -79,7 +88,8 @@ export default function Projects() {
                 ))}
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
